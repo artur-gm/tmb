@@ -43,7 +43,7 @@ function Form() {
         ? (resultado = tmb + tmb * 0.35)
         : (resultado = tmb + tmb * 0.45);
     } else {
-      tmb = 665 + 9.6 * peso + 1.7 * altura - 4.7 * idade;
+      tmb = 655 + 9.6 * peso + 1.7 * altura - 4.7 * idade;
       atividade == "0"
         ? (resultado = tmb + tmb * 0.2)
         : atividade == "1"
