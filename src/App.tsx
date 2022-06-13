@@ -15,11 +15,11 @@ function App() {
 }
 
 function Form() {
-  const [genero, setGenero] = useState<{ homem: boolean, mulher: boolean }>({ homem: false, mulher: false});
+  const [genero, setGenero] = useState<{ homem: boolean, mulher: boolean }>({ homem: true, mulher: false});
   const [peso, setPeso] = useState<number>(0);
   const [altura, setAltura] = useState<number>(0);
   const [idade, setIdade] = useState<number>(0);
-  const [atividade, setAtividade] = useState<string>("");
+  const [atividade, setAtividade] = useState<string>("0");
   const [tmbResult, setTmbResult] = useState<number>(0);
   const [resultadoResult, setResultadoResult] = useState<number>(0);
 
