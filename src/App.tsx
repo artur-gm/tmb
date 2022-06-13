@@ -15,7 +15,10 @@ function App() {
 }
 
 function Form() {
-  const [genero, setGenero] = useState<{ homem: boolean, mulher: boolean }>({ homem: true, mulher: false});
+  const [genero, setGenero] = useState<{ homem: boolean; mulher: boolean }>({
+    homem: true,
+    mulher: false,
+  });
   const [peso, setPeso] = useState<number>(0);
   const [altura, setAltura] = useState<number>(0);
   const [idade, setIdade] = useState<number>(0);
@@ -33,14 +36,14 @@ function Form() {
     let resultado = 0;
 
     if (genero.homem === true) {
-      tmb = 66 + (13.7 * peso) + (5 * altura) - (6.8 * idade);
+      tmb = 66 + 13.7 * peso + 5 * altura - 6.8 * idade;
       atividade == "0"
         ? (resultado = tmb + tmb * 0.25)
         : atividade == "1"
         ? (resultado = tmb + tmb * 0.35)
         : (resultado = tmb + tmb * 0.45);
     } else {
-      tmb = 665 + (9.6 * peso) + (1.7 * altura) - (4.7 * idade);
+      tmb = 665 + 9.6 * peso + 1.7 * altura - 4.7 * idade;
       atividade == "0"
         ? (resultado = tmb + tmb * 0.2)
         : atividade == "1"
@@ -60,15 +63,19 @@ function Form() {
           value="homem"
           id="genero"
           checked={genero.homem}
-          onChange={(e) => setGenero({ mulher: !e.target.checked , homem: e.target.checked })}
+          onChange={(e) =>
+            setGenero({ mulher: !e.target.checked, homem: e.target.checked })
+          }
         />
         Homem
         <input
           type="radio"
           value="mulher"
-          id="genero" 
+          id="genero"
           checked={genero.mulher}
-          onChange={(e) => setGenero({ homem: !e.target.checked, mulher: e.target.checked })}
+          onChange={(e) =>
+            setGenero({ homem: !e.target.checked, mulher: e.target.checked })
+          }
         />
         Mulher
       </div>
@@ -118,11 +125,11 @@ function Form() {
         <input type="submit" value="Enviar" />
       </div>
       {resultadoResult && tmbResult ? (
-        <div>
-          Para perder peso, você pode consumir no máximo de{" "}
-          {resultadoResult - 600} a {resultadoResult - 500} calorias{" "}
-          diariamente. Mas cuidado! Não consuma menos que {tmbResult} por longos{" "}
-          períodos. Para manter o peso, consuma até {resultadoResult} por dia.
+        <div className="card">
+          Para perder peso, você pode consumir no máximo em torno de{" "}
+          {resultadoResult - 550} calorias diariamente. Mas cuidado! Não consuma
+          menos que {tmbResult} diárias por longos períodos. Para manter o peso,
+          consuma até {resultadoResult} por dia.
         </div>
       ) : null}
     </form>
